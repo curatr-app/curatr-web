@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy policy – curatr</title>
+<meta name="description" content="curatr: Top picks from friends for friends. Restaurants, cafés and bars your friends love.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #FFFFFF;
+    --bg-subtle: #FAFAF9;
+    --border: #E5E4E2;
+    --text: #1A1A1A;
+    --text-secondary: #6B6B6B;
+    --accent: #173C6B;
+    --accent-subtle: #EAF0F7;
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #16181C;
+      --bg-subtle: #1D2025;
+      --border: #2B2F36;
+      --text: #F0F0EE;
+      --text-secondary: #9A9FA6;
+      --accent: #7FA8DC;
+      --accent-subtle: #202A38;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #16181C;
+    --bg-subtle: #1D2025;
+    --border: #2B2F36;
+    --text: #F0F0EE;
+    --text-secondary: #9A9FA6;
+    --accent: #7FA8DC;
+    --accent-subtle: #202A38;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 3rem 1.25rem 4rem;
+  }
+  header {
+    margin-bottom: 2.5rem;
+  }
+  .kicker {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.15;
+    text-wrap: balance;
+    margin: 0.3em 0 0.2em;
+  }
+  .updated {
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
+  .intro {
+    background: var(--bg-subtle);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0 0;
+    font-size: 15px;
+    color: var(--text-secondary);
+  }
+  .intro strong { color: var(--text); }
+
+  section {
+    margin-top: 2.5rem;
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 22px;
+    margin: 0 0 0.9rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+  h2 .num {
+    color: var(--accent);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  p { margin: 0 0 0.9rem; }
+  ul { margin: 0 0 0.9rem; padding-left: 1.2rem; }
+  li { margin-bottom: 0.5rem; }
+  .label {
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.5rem 0 1.2rem;
+    font-size: 14.5px;
+  }
+  th, td {
+    text-align: left;
+    padding: 0.55rem 0.7rem;
+    border-bottom: 0.5px solid var(--border);
+    vertical-align: top;
+  }
+  th {
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .table-wrap { overflow-x: auto; }
+
+  .contact {
+    background: var(--accent-subtle);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .contact h2 { margin-bottom: 0.4rem; }
+  .contact a { color: var(--accent); font-weight: 500; text-decoration: none; }
+  .contact a:hover { text-decoration: underline; }
+
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 0.5px solid var(--border);
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  nav { display:flex; flex-wrap:wrap; gap:1.1rem; align-items:center; margin-bottom:2rem; font-size:14.5px; }
+  nav a { color: var(--text-secondary); text-decoration:none; }
+  nav a:hover, nav a.on { color: var(--accent); }
+  nav .brand { font-family: var(--font-display); font-size:22px; color: var(--text); margin-right:auto; }
+  nav .lang { margin-left:0.4rem; }
+  a { color: var(--accent); }
+  .hero { padding: 1rem 0 0.5rem; }
+  .hero p.lead { font-size: 19px; color: var(--text-secondary); max-width: 34em; }
+  .badges { display:flex; flex-wrap:wrap; gap:0.7rem; margin: 1.4rem 0 0; }
+  .badge { display:inline-block; padding:0.65rem 1.1rem; border:0.5px solid var(--border); border-radius:999px; font-size:14.5px; color:var(--text-secondary); background:var(--bg-subtle); }
+  .cards { display:grid; gap:0.9rem; margin-top:1.5rem; }
+  .card { background:var(--bg-subtle); border:0.5px solid var(--border); border-radius:12px; padding:1rem 1.2rem; }
+  .card strong { color: var(--text); }
+  .contact { background:var(--bg-subtle); border:0.5px solid var(--border); border-radius:12px; padding:1.1rem 1.4rem; margin-top:2.5rem; }
+  footer { margin-top:3rem; font-size:13.5px; color:var(--text-secondary); border-top:0.5px solid var(--border); padding-top:1.2rem; }
+  footer a { color: var(--text-secondary); }
+  ol li { margin-bottom:0.7rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a class="brand" href="/en">curatr</a><a class="" href="/en/">Home</a><a class="" href="/en/support.html">Help &amp; support</a><a class="on" href="/en/datenschutz.html">Privacy</a><a class="" href="/en/impressum.html">Legal notice</a><a class="lang" href="/datenschutz.html">Deutsch</a></nav>
+
+<header>
+  <div class="kicker">Privacy</div>
+  <h1>Privacy policy</h1>
+  <div class="updated">Updated: October 18, 2026</div>
+  <div class="intro">This policy applies to the <strong>curatr</strong> app (iPhone and Android) and this website. It explains in plain language which data we process, why, and how you can use your rights.</div>
+</header>
+<section><h2><span class="num">1</span>Who is responsible?</h2><p>Paul Scheuble, as operator of curatr, is responsible for data processing (address see <a href="/en/impressum.html">legal notice</a>). For privacy questions write to <a href="mailto:curationapp@gmx.de">curationapp@gmx.de</a>.</p></section>
+<section><h2><span class="num">2</span>Which data does curatr process, and why?</h2><p>curatr is a social curation app for restaurants, cafés and bars: you rate places, see your friends' recommendations and discover new places. For this we process:</p>
+<div class="table-wrap"><table>
+<tr><th>Data</th><th>Purpose</th><th>Legal basis</th></tr>
+<tr><td class="label">Account data</td><td>Name, username, email address, password (stored encrypted only), optionally phone number, birthday, profile picture, short bio, dietary preferences. For sign-in and your profile.</td><td>Contract (Art. 6(1)(b) GDPR)</td></tr>
+<tr><td class="label">Visit data</td><td>Places you rate, scores, tags, notes, photos, comments, hearts. Your history, top picks and the friends feed.</td><td>Contract</td></tr>
+<tr><td class="label">Location</td><td>Only when you use search, map or “Nearby” and allow it. No background tracking, no permanent location history.</td><td>Consent (Art. 6(1)(a)), revocable at any time in your device settings</td></tr>
+<tr><td class="label">Photos</td><td>Profile picture, visit, menu and dish photos that you upload yourself.</td><td>Contract</td></tr>
+<tr><td class="label">Social connections</td><td>Who you follow and who follows you; places and lists sent to friends with note and reply. For the friends feed, recommendations and notifications.</td><td>Contract</td></tr>
+<tr><td class="label">Contact matching</td><td>On request the app compares phone numbers from your address book on your device to suggest friends. The numbers from your address book are not sent to us and not stored.</td><td>Consent</td></tr>
+<tr><td class="label">Notifications</td><td>A device token to send you notifications (for example hearts, comments, follow requests, weekly and monthly recap). You can turn them off in your device settings and in the app.</td><td>Consent</td></tr>
+<tr><td class="label">Reports and feedback</td><td>Content you submit via “Report” or “Give feedback”.</td><td>Legitimate interest (Art. 6(1)(f)), protecting users</td></tr>
+<tr><td class="label">Technical data</td><td>When our servers are accessed, technical data is briefly processed (for example IP address, time, device type) for secure operation.</td><td>Legitimate interest</td></tr>
+</table></div></section>
+<section><h2><span class="num">3</span>Where is the data stored, and who helps us?</h2><p>We use technical service providers that process data only on our behalf:</p>
+<ul>
+<li><span class="label">Supabase</span> (database, file storage, sign-in). The data is stored on servers in the EU.</li>
+<li><span class="label">Expo</span> (sending notifications) as well as <span class="label">Apple</span> and <span class="label">Google</span> (delivering notifications on iPhone and Android). Data may be exchanged with servers outside the EU; the providers use the safeguards provided by the EU for this (for example standard contractual clauses).</li>
+<li><span class="label">MapTiler</span> (map images). When the map loads, your IP address is sent to the map provider. Map data comes from OpenStreetMap contributors.</li>
+</ul>
+<p>We do not sell your data and do not pass it on for advertising. There is no advertising and no tracking by advertising or analytics services.</p></section>
+<section><h2><span class="num">4</span>What do other users see of you?</h2><p>You decide what others see, in “Privacy” in your profile: <span class="label">Everyone</span>, <span class="label">Followers only</span> or <span class="label">Nobody</span> (for bio, badges, top picks, recent visits, followers and following).</p>
+<p>Name, username and profile picture are always visible to other users so the app works socially. Hints such as “friend was there” or “you both want to go” exist only between people who follow each other. You can turn this feature off in “Personalize”.</p></section>
+<section><h2><span class="num">5</span>How long do we keep data?</h2><p>As long as your account exists. You can delete your account and all related data at any time in the app (Profile → Edit profile → Delete account) or request it by email, see <a href="/en/support.html#delete-account">delete account</a>. Legal retention duties remain unaffected. Technical access data is kept by providers only briefly.</p></section>
+<section><h2><span class="num">6</span>Your rights</h2><p>You have the right to access, correction, deletion, restriction of processing, data portability and objection. You can withdraw a given consent at any time with effect for the future. Just write to the address below. You can also complain to a data protection supervisory authority.</p></section>
+<div class="contact"><h2 style="margin-bottom:0.6rem"><span class="num">↳</span>Contact</h2>
+<p style="margin-bottom:0">Privacy questions? Write to <a href="mailto:curationapp@gmx.de">curationapp@gmx.de</a>.</p></div>
+
+<footer>© 2026 curatr · <a href="/en/datenschutz.html">Privacy</a> · <a href="/en/impressum.html">Legal notice</a> · <a href="mailto:curationapp@gmx.de">curationapp@gmx.de</a></footer>
+</div>
+</body>
+</html>

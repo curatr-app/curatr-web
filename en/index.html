@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>curatr – Top picks from friends for friends</title>
+<meta name="description" content="curatr: Top picks from friends for friends. Restaurants, cafés and bars your friends love.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #FFFFFF;
+    --bg-subtle: #FAFAF9;
+    --border: #E5E4E2;
+    --text: #1A1A1A;
+    --text-secondary: #6B6B6B;
+    --accent: #173C6B;
+    --accent-subtle: #EAF0F7;
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #16181C;
+      --bg-subtle: #1D2025;
+      --border: #2B2F36;
+      --text: #F0F0EE;
+      --text-secondary: #9A9FA6;
+      --accent: #7FA8DC;
+      --accent-subtle: #202A38;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #16181C;
+    --bg-subtle: #1D2025;
+    --border: #2B2F36;
+    --text: #F0F0EE;
+    --text-secondary: #9A9FA6;
+    --accent: #7FA8DC;
+    --accent-subtle: #202A38;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 3rem 1.25rem 4rem;
+  }
+  header {
+    margin-bottom: 2.5rem;
+  }
+  .kicker {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.15;
+    text-wrap: balance;
+    margin: 0.3em 0 0.2em;
+  }
+  .updated {
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
+  .intro {
+    background: var(--bg-subtle);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0 0;
+    font-size: 15px;
+    color: var(--text-secondary);
+  }
+  .intro strong { color: var(--text); }
+
+  section {
+    margin-top: 2.5rem;
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 22px;
+    margin: 0 0 0.9rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+  h2 .num {
+    color: var(--accent);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  p { margin: 0 0 0.9rem; }
+  ul { margin: 0 0 0.9rem; padding-left: 1.2rem; }
+  li { margin-bottom: 0.5rem; }
+  .label {
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.5rem 0 1.2rem;
+    font-size: 14.5px;
+  }
+  th, td {
+    text-align: left;
+    padding: 0.55rem 0.7rem;
+    border-bottom: 0.5px solid var(--border);
+    vertical-align: top;
+  }
+  th {
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .table-wrap { overflow-x: auto; }
+
+  .contact {
+    background: var(--accent-subtle);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .contact h2 { margin-bottom: 0.4rem; }
+  .contact a { color: var(--accent); font-weight: 500; text-decoration: none; }
+  .contact a:hover { text-decoration: underline; }
+
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 0.5px solid var(--border);
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  nav { display:flex; flex-wrap:wrap; gap:1.1rem; align-items:center; margin-bottom:2rem; font-size:14.5px; }
+  nav a { color: var(--text-secondary); text-decoration:none; }
+  nav a:hover, nav a.on { color: var(--accent); }
+  nav .brand { font-family: var(--font-display); font-size:22px; color: var(--text); margin-right:auto; }
+  nav .lang { margin-left:0.4rem; }
+  a { color: var(--accent); }
+  .hero { padding: 1rem 0 0.5rem; }
+  .hero p.lead { font-size: 19px; color: var(--text-secondary); max-width: 34em; }
+  .badges { display:flex; flex-wrap:wrap; gap:0.7rem; margin: 1.4rem 0 0; }
+  .badge { display:inline-block; padding:0.65rem 1.1rem; border:0.5px solid var(--border); border-radius:999px; font-size:14.5px; color:var(--text-secondary); background:var(--bg-subtle); }
+  .cards { display:grid; gap:0.9rem; margin-top:1.5rem; }
+  .card { background:var(--bg-subtle); border:0.5px solid var(--border); border-radius:12px; padding:1rem 1.2rem; }
+  .card strong { color: var(--text); }
+  .contact { background:var(--bg-subtle); border:0.5px solid var(--border); border-radius:12px; padding:1.1rem 1.4rem; margin-top:2.5rem; }
+  footer { margin-top:3rem; font-size:13.5px; color:var(--text-secondary); border-top:0.5px solid var(--border); padding-top:1.2rem; }
+  footer a { color: var(--text-secondary); }
+  ol li { margin-bottom:0.7rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a class="brand" href="/en">curatr</a><a class="on" href="/en/">Home</a><a class="" href="/en/support.html">Help &amp; support</a><a class="" href="/en/datenschutz.html">Privacy</a><a class="" href="/en/impressum.html">Legal notice</a><a class="lang" href="/">Deutsch</a></nav>
+
+<header class="hero">
+  <div class="kicker">Restaurants · Cafés · Bars</div>
+  <h1>Top picks from friends for friends.</h1>
+  <p class="lead">Instead of anonymous stars, you see what people you trust recommend. Save places, rate your visits and find new favourites in your city and on the road.</p>
+  <div class="badges"><span class="badge">iPhone: coming soon to the App Store</span><span class="badge">Android: coming soon to Google Play</span><span class="badge">German and English</span></div>
+</header>
+<section>
+  <h2>What you can do with curatr</h2>
+  <div class="cards">
+    <div class="card"><strong>Top picks.</strong> Your favourite places per city as a personal list. See your friends' top picks.</div>
+    <div class="card"><strong>Friends feed.</strong> See where your friends went, with photo, rating and note.</div>
+    <div class="card"><strong>Map and search.</strong> Find places by cuisine, occasion, time of day and style.</div>
+    <div class="card"><strong>Want to go.</strong> Save places you want to try and go together.</div>
+    <div class="card"><strong>Recap.</strong> Your weekly streak and your personal recap every month.</div>
+  </div>
+</section>
+<div class="contact">Questions or ideas? Write to us: <a href="mailto:curationapp@gmx.de">curationapp@gmx.de</a>. Find help on <a href="/en/support.html">Help &amp; support</a>.</div>
+
+<footer>© 2026 curatr · <a href="/en/datenschutz.html">Privacy</a> · <a href="/en/impressum.html">Legal notice</a> · <a href="mailto:curationapp@gmx.de">curationapp@gmx.de</a></footer>
+</div>
+</body>
+</html>

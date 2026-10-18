@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hilfe und Support – curatr</title>
+<meta name="description" content="curatr: Top-Picks von Freunden für Freunde. Restaurants, Cafés und Bars, die deine Freunde lieben.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #FFFFFF;
+    --bg-subtle: #FAFAF9;
+    --border: #E5E4E2;
+    --text: #1A1A1A;
+    --text-secondary: #6B6B6B;
+    --accent: #173C6B;
+    --accent-subtle: #EAF0F7;
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #16181C;
+      --bg-subtle: #1D2025;
+      --border: #2B2F36;
+      --text: #F0F0EE;
+      --text-secondary: #9A9FA6;
+      --accent: #7FA8DC;
+      --accent-subtle: #202A38;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #16181C;
+    --bg-subtle: #1D2025;
+    --border: #2B2F36;
+    --text: #F0F0EE;
+    --text-secondary: #9A9FA6;
+    --accent: #7FA8DC;
+    --accent-subtle: #202A38;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 3rem 1.25rem 4rem;
+  }
+  header {
+    margin-bottom: 2.5rem;
+  }
+  .kicker {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.15;
+    text-wrap: balance;
+    margin: 0.3em 0 0.2em;
+  }
+  .updated {
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
+  .intro {
+    background: var(--bg-subtle);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0 0;
+    font-size: 15px;
+    color: var(--text-secondary);
+  }
+  .intro strong { color: var(--text); }
+
+  section {
+    margin-top: 2.5rem;
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 22px;
+    margin: 0 0 0.9rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+  h2 .num {
+    color: var(--accent);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  p { margin: 0 0 0.9rem; }
+  ul { margin: 0 0 0.9rem; padding-left: 1.2rem; }
+  li { margin-bottom: 0.5rem; }
+  .label {
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.5rem 0 1.2rem;
+    font-size: 14.5px;
+  }
+  th, td {
+    text-align: left;
+    padding: 0.55rem 0.7rem;
+    border-bottom: 0.5px solid var(--border);
+    vertical-align: top;
+  }
+  th {
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .table-wrap { overflow-x: auto; }
+
+  .contact {
+    background: var(--accent-subtle);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .contact h2 { margin-bottom: 0.4rem; }
+  .contact a { color: var(--accent); font-weight: 500; text-decoration: none; }
+  .contact a:hover { text-decoration: underline; }
+
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 0.5px solid var(--border);
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  nav { display:flex; flex-wrap:wrap; gap:1.1rem; align-items:center; margin-bottom:2rem; font-size:14.5px; }
+  nav a { color: var(--text-secondary); text-decoration:none; }
+  nav a:hover, nav a.on { color: var(--accent); }
+  nav .brand { font-family: var(--font-display); font-size:22px; color: var(--text); margin-right:auto; }
+  nav .lang { margin-left:0.4rem; }
+  a { color: var(--accent); }
+  .hero { padding: 1rem 0 0.5rem; }
+  .hero p.lead { font-size: 19px; color: var(--text-secondary); max-width: 34em; }
+  .badges { display:flex; flex-wrap:wrap; gap:0.7rem; margin: 1.4rem 0 0; }
+  .badge { display:inline-block; padding:0.65rem 1.1rem; border:0.5px solid var(--border); border-radius:999px; font-size:14.5px; color:var(--text-secondary); background:var(--bg-subtle); }
+  .cards { display:grid; gap:0.9rem; margin-top:1.5rem; }
+  .card { background:var(--bg-subtle); border:0.5px solid var(--border); border-radius:12px; padding:1rem 1.2rem; }
+  .card strong { color: var(--text); }
+  .contact { background:var(--bg-subtle); border:0.5px solid var(--border); border-radius:12px; padding:1.1rem 1.4rem; margin-top:2.5rem; }
+  footer { margin-top:3rem; font-size:13.5px; color:var(--text-secondary); border-top:0.5px solid var(--border); padding-top:1.2rem; }
+  footer a { color: var(--text-secondary); }
+  ol li { margin-bottom:0.7rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a class="brand" href="/">curatr</a><a class="" href="/">Start</a><a class="on" href="/support.html">Hilfe &amp; Support</a><a class="" href="/datenschutz.html">Datenschutz</a><a class="" href="/impressum.html">Impressum</a><a class="lang" href="/en/support.html">English</a></nav>
+
+<header>
+  <div class="kicker">Hilfe</div>
+  <h1>Hilfe &amp; Support</h1>
+  <div class="updated">Stand: 18. Oktober 2026</div>
+</header>
+<section id="kontakt">
+  <h2>Kontakt</h2>
+  <p>Schreib uns an <a href="mailto:curationapp@gmx.de">curationapp@gmx.de</a>. Wir antworten in der Regel innerhalb weniger Tage. In der App kannst du auch direkt unter <em>Profil → Feedback geben</em> schreiben.</p>
+</section>
+<section id="konto-loeschen">
+  <h2>Konto und Daten löschen</h2>
+  <p>Du kannst dein Konto jederzeit selbst löschen. Dabei werden dein Profil und alle zugehörigen Daten entfernt (Besuche, Bewertungen, Fotos, Listen, Kommentare, Folgen).</p>
+  <p><strong>In der App:</strong></p>
+  <ol>
+    <li>Öffne <em>Profil</em> und tippe auf <em>Profil bearbeiten</em>.</li>
+    <li>Scrolle nach unten und tippe auf <em>Account löschen</em>.</li>
+    <li>Bestätige die Löschung. Dein Konto ist danach gelöscht und kann nicht wiederhergestellt werden.</li>
+  </ol>
+  <p><strong>Ohne App:</strong> Schreib uns von der E-Mail-Adresse deines Kontos an <a href="mailto:curationapp@gmx.de?subject=Konto%20l%C3%B6schen">curationapp@gmx.de</a> mit dem Betreff „Konto löschen“. Wir löschen dein Konto und deine Daten innerhalb von 30 Tagen und bestätigen dir die Löschung per E-Mail.</p>
+</section>
+<section>
+  <h2>Häufige Fragen</h2>
+  <p><span class="label">Wer sieht meine Besuche und Top-Picks?</span><br>Das bestimmst du unter <em>Profil → Privatsphäre</em> (alle, nur Follower, niemand). Name, Username und Profilbild sind immer sichtbar.</p>
+  <p><span class="label">Wie melde ich einen Ort oder einen Inhalt?</span><br>Im Menü (drei Punkte) bei Orten und Besuchen gibt es <em>Melden</em>. Wir prüfen jede Meldung.</p>
+  <p><span class="label">Ein Ort fehlt oder ist falsch.</span><br>Fehlende Orte kannst du in der App selbst anlegen. Für Änderungen gibt es <em>Änderung vorschlagen</em> auf der Ortsseite.</p>
+  <p><span class="label">Ich habe mein Passwort vergessen.</span><br>Tippe beim Anmelden auf <em>Passwort vergessen</em>. Du bekommst einen Link per E-Mail.</p>
+</section>
+
+<footer>© 2026 curatr · <a href="/datenschutz.html">Datenschutz</a> · <a href="/impressum.html">Impressum</a> · <a href="mailto:curationapp@gmx.de">curationapp@gmx.de</a></footer>
+</div>
+</body>
+</html>
