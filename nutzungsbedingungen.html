@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Regeln – curatr</title>
+<meta name="description" content="curatr: Top-Picks von Freunden für Freunde. Restaurants, Cafés und Bars, die deine Freunde lieben.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #FFFFFF;
+    --bg-subtle: #FAFAF9;
+    --border: #E5E4E2;
+    --text: #1A1A1A;
+    --text-secondary: #6B6B6B;
+    --accent: #173C6B;
+    --accent-subtle: #EAF0F7;
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #16181C;
+      --bg-subtle: #1D2025;
+      --border: #2B2F36;
+      --text: #F0F0EE;
+      --text-secondary: #9A9FA6;
+      --accent: #7FA8DC;
+      --accent-subtle: #202A38;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #16181C;
+    --bg-subtle: #1D2025;
+    --border: #2B2F36;
+    --text: #F0F0EE;
+    --text-secondary: #9A9FA6;
+    --accent: #7FA8DC;
+    --accent-subtle: #202A38;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 3rem 1.25rem 4rem;
+  }
+  header {
+    margin-bottom: 2.5rem;
+  }
+  .kicker {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.15;
+    text-wrap: balance;
+    margin: 0.3em 0 0.2em;
+  }
+  .updated {
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
+  .intro {
+    background: var(--bg-subtle);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0 0;
+    font-size: 15px;
+    color: var(--text-secondary);
+  }
+  .intro strong { color: var(--text); }
+
+  section {
+    margin-top: 2.5rem;
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 22px;
+    margin: 0 0 0.9rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+  h2 .num {
+    color: var(--accent);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  p { margin: 0 0 0.9rem; }
+  ul { margin: 0 0 0.9rem; padding-left: 1.2rem; }
+  li { margin-bottom: 0.5rem; }
+  .label {
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.5rem 0 1.2rem;
+    font-size: 14.5px;
+  }
+  th, td {
+    text-align: left;
+    padding: 0.55rem 0.7rem;
+    border-bottom: 0.5px solid var(--border);
+    vertical-align: top;
+  }
+  th {
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .table-wrap { overflow-x: auto; }
+
+  .contact {
+    background: var(--accent-subtle);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .contact h2 { margin-bottom: 0.4rem; }
+  .contact a { color: var(--accent); font-weight: 500; text-decoration: none; }
+  .contact a:hover { text-decoration: underline; }
+
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 0.5px solid var(--border);
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  nav { display:flex; flex-wrap:wrap; gap:1.1rem; align-items:center; margin-bottom:2rem; font-size:14.5px; }
+  nav a { color: var(--text-secondary); text-decoration:none; }
+  nav a:hover, nav a.on { color: var(--accent); }
+  nav .brand { font-family: var(--font-display); font-size:22px; color: var(--text); margin-right:auto; }
+  nav .lang { margin-left:0.4rem; }
+  a { color: var(--accent); }
+  .hero { padding: 1rem 0 0.5rem; }
+  .hero p.lead { font-size: 19px; color: var(--text-secondary); max-width: 34em; }
+  .badges { display:flex; flex-wrap:wrap; gap:0.7rem; margin: 1.4rem 0 0; }
+  .badge { display:inline-block; padding:0.65rem 1.1rem; border:0.5px solid var(--border); border-radius:999px; font-size:14.5px; color:var(--text-secondary); background:var(--bg-subtle); }
+  .cards { display:grid; gap:0.9rem; margin-top:1.5rem; }
+  .card { background:var(--bg-subtle); border:0.5px solid var(--border); border-radius:12px; padding:1rem 1.2rem; }
+  .card strong { color: var(--text); }
+  .contact { background:var(--bg-subtle); border:0.5px solid var(--border); border-radius:12px; padding:1.1rem 1.4rem; margin-top:2.5rem; }
+  footer { margin-top:3rem; font-size:13.5px; color:var(--text-secondary); border-top:0.5px solid var(--border); padding-top:1.2rem; }
+  footer a { color: var(--text-secondary); }
+  ol li { margin-bottom:0.7rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a class="brand" href="/">curatr</a><a class="" href="/">Start</a><a class="" href="/support.html">Hilfe &amp; Support</a><a class="" href="/datenschutz.html">Datenschutz</a><a class="on" href="/nutzungsbedingungen.html">Regeln</a><a class="" href="/impressum.html">Impressum</a><a class="lang" href="/en/terms.html">English</a></nav>
+
+<header>
+  <div class="kicker">Regeln</div>
+  <h1>Regeln für die Nutzung von curatr</h1>
+  <div class="updated">Stand: 20. Oktober 2026</div>
+</header>
+<div class="intro"><strong>Kurz gesagt:</strong> curatr ist ein Ort für ehrliche Tipps unter Freunden. Sei freundlich, poste nur, was du darfst, und melde, was nicht passt. Wer die Regeln bricht, wird gesperrt.</div>
+<section id="was">
+  <h2><span class="num">1</span>Was curatr ist</h2>
+  <p>curatr ist eine App, in der du Restaurants, Cafés und Bars bewertest, Orte merkst und Tipps mit Freunden teilst. Mit diesen Regeln und unserer <a href="/datenschutz.html">Datenschutzerklärung</a> nutzt du curatr. Betreiber ist, wer im <a href="/impressum.html">Impressum</a> steht.</p>
+</section>
+<section id="konto">
+  <h2><span class="num">2</span>Dein Konto</h2>
+  <ul>
+    <li>Du gibst echte Angaben an und hältst dein Passwort geheim. Du bist für dein Konto verantwortlich.</li>
+    <li>Pro Person ein Konto. Falsche Profile oder fremde Identitäten sind nicht erlaubt.</li>
+  </ul>
+</section>
+<section id="erlaubt">
+  <h2><span class="num">3</span>Was nicht erlaubt ist</h2>
+  <p><strong>Wir dulden keine anstößigen Inhalte und kein missbräuchliches Verhalten.</strong> Das heißt:</p>
+  <ul>
+    <li>Beleidigung, Belästigung, Drohung, Mobbing, Hass und Diskriminierung (zum Beispiel wegen Herkunft, Religion, Geschlecht, Alter, Behinderung oder sexueller Orientierung).</li>
+    <li>Sexuelle, gewalttätige oder andere verstörende Inhalte, auch in Fotos, Notizen, Kommentaren, Namen und Profiltexten.</li>
+    <li>Spam, Werbung, Kettenbriefe und Inhalte, die Nutzer täuschen sollen, zum Beispiel falsche oder gekaufte Bewertungen.</li>
+    <li>Fotos, an denen du keine Rechte hast, oder Fotos von Personen ohne deren Einverständnis.</li>
+    <li>Das Veröffentlichen privater Daten anderer, Verstöße gegen Gesetze und Angriffe auf die App oder ihre Technik.</li>
+  </ul>
+</section>
+<section id="inhalte">
+  <h2><span class="num">4</span>Deine Inhalte</h2>
+  <p>Deine Bewertungen, Fotos, Notizen und Kommentare gehören dir. Du erlaubst curatr, sie in der App so anzuzeigen, wie du es in deinen Privatsphäre-Einstellungen festlegst, und sie dafür zu speichern. Du versicherst, dass du das Recht dazu hast und niemanden verletzt. Bewertungen sind deine persönliche Meinung.</p>
+</section>
+<section id="melden">
+  <h2><span class="num">5</span>Melden und Blockieren</h2>
+  <ul>
+    <li><strong>Melden:</strong> Du kannst Profile, Kommentare und Besuche melden (Menü „…“).</li>
+    <li><strong>Blockieren:</strong> Du kannst jede Person blockieren. Ihr seht euch dann gegenseitig nicht mehr, und niemand von euch kann dem anderen folgen, etwas schicken oder kommentieren. Du kannst es jederzeit unter <em>Einstellungen → Blockierte Personen</em> aufheben.</li>
+    <li><strong>Was wir tun:</strong> Wir sehen Meldungen zügig an, entfernen Inhalte, die gegen diese Regeln verstoßen, und sperren oder löschen Konten bei Verstößen, auch ohne Vorwarnung.</li>
+  </ul>
+</section>
+<section id="orte">
+  <h2><span class="num">6</span>Orte und Angaben</h2>
+  <p>Angaben zu Orten (Adresse, Öffnungszeiten, Preise, Küche) stammen teils von Nutzern und aus offenen Datenquellen und können falsch oder veraltet sein. Wir übernehmen dafür keine Gewähr. Du kannst Änderungen vorschlagen.</p>
+</section>
+<section id="haftung">
+  <h2><span class="num">7</span>Haftung</h2>
+  <p>Wir haften unbeschränkt bei Vorsatz und grober Fahrlässigkeit sowie bei Verletzung von Leben, Körper oder Gesundheit. Bei leichter Fahrlässigkeit haften wir nur bei Verletzung wesentlicher Pflichten und nur für typische, vorhersehbare Schäden. Die gesetzliche Haftung bleibt unberührt. Für Inhalte von Nutzern sind diese selbst verantwortlich.</p>
+</section>
+<section id="aendern">
+  <h2><span class="num">8</span>Änderungen und Ende</h2>
+  <p>Wir können diese Regeln ändern, zum Beispiel wenn die App neue Funktionen bekommt. Wesentliche Änderungen zeigen wir dir in der App und bitten dich um Zustimmung. Du kannst dein Konto jederzeit in der App löschen (<em>Profil → Profil bearbeiten → Konto löschen</em>). Wir können dein Konto bei Verstößen sperren oder löschen.</p>
+</section>
+<section id="recht">
+  <h2><span class="num">9</span>Recht</h2>
+  <p>Es gilt deutsches Recht. Zwingende Verbraucherschutzvorschriften deines Wohnsitzlandes bleiben unberührt.</p>
+</section>
+<div class="contact">
+  <h2>Kontakt</h2>
+  <p>Fragen, Meldungen oder Beschwerden: <a href="mailto:curationapp@gmx.de">curationapp@gmx.de</a>. In der App findest du Melden unter dem Menü „…“ bei Profilen, Kommentaren und Besuchen.</p>
+</div>
+<footer>© 2026 curatr · <a href="/datenschutz.html">Datenschutz</a> · <a href="/impressum.html">Impressum</a> · <a href="mailto:curationapp@gmx.de">curationapp@gmx.de</a></footer>
+</div>
+</body>
+</html>

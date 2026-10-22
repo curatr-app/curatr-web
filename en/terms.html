@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rules – curatr</title>
+<meta name="description" content="curatr: Top picks from friends for friends. Restaurants, cafés and bars your friends love.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #FFFFFF;
+    --bg-subtle: #FAFAF9;
+    --border: #E5E4E2;
+    --text: #1A1A1A;
+    --text-secondary: #6B6B6B;
+    --accent: #173C6B;
+    --accent-subtle: #EAF0F7;
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #16181C;
+      --bg-subtle: #1D2025;
+      --border: #2B2F36;
+      --text: #F0F0EE;
+      --text-secondary: #9A9FA6;
+      --accent: #7FA8DC;
+      --accent-subtle: #202A38;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #16181C;
+    --bg-subtle: #1D2025;
+    --border: #2B2F36;
+    --text: #F0F0EE;
+    --text-secondary: #9A9FA6;
+    --accent: #7FA8DC;
+    --accent-subtle: #202A38;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 3rem 1.25rem 4rem;
+  }
+  header {
+    margin-bottom: 2.5rem;
+  }
+  .kicker {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.15;
+    text-wrap: balance;
+    margin: 0.3em 0 0.2em;
+  }
+  .updated {
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
+  .intro {
+    background: var(--bg-subtle);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0 0;
+    font-size: 15px;
+    color: var(--text-secondary);
+  }
+  .intro strong { color: var(--text); }
+
+  section {
+    margin-top: 2.5rem;
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 22px;
+    margin: 0 0 0.9rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+  h2 .num {
+    color: var(--accent);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  p { margin: 0 0 0.9rem; }
+  ul { margin: 0 0 0.9rem; padding-left: 1.2rem; }
+  li { margin-bottom: 0.5rem; }
+  .label {
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.5rem 0 1.2rem;
+    font-size: 14.5px;
+  }
+  th, td {
+    text-align: left;
+    padding: 0.55rem 0.7rem;
+    border-bottom: 0.5px solid var(--border);
+    vertical-align: top;
+  }
+  th {
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .table-wrap { overflow-x: auto; }
+
+  .contact {
+    background: var(--accent-subtle);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .contact h2 { margin-bottom: 0.4rem; }
+  .contact a { color: var(--accent); font-weight: 500; text-decoration: none; }
+  .contact a:hover { text-decoration: underline; }
+
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 0.5px solid var(--border);
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  nav { display:flex; flex-wrap:wrap; gap:1.1rem; align-items:center; margin-bottom:2rem; font-size:14.5px; }
+  nav a { color: var(--text-secondary); text-decoration:none; }
+  nav a:hover, nav a.on { color: var(--accent); }
+  nav .brand { font-family: var(--font-display); font-size:22px; color: var(--text); margin-right:auto; }
+  nav .lang { margin-left:0.4rem; }
+  a { color: var(--accent); }
+  .hero { padding: 1rem 0 0.5rem; }
+  .hero p.lead { font-size: 19px; color: var(--text-secondary); max-width: 34em; }
+  .badges { display:flex; flex-wrap:wrap; gap:0.7rem; margin: 1.4rem 0 0; }
+  .badge { display:inline-block; padding:0.65rem 1.1rem; border:0.5px solid var(--border); border-radius:999px; font-size:14.5px; color:var(--text-secondary); background:var(--bg-subtle); }
+  .cards { display:grid; gap:0.9rem; margin-top:1.5rem; }
+  .card { background:var(--bg-subtle); border:0.5px solid var(--border); border-radius:12px; padding:1rem 1.2rem; }
+  .card strong { color: var(--text); }
+  .contact { background:var(--bg-subtle); border:0.5px solid var(--border); border-radius:12px; padding:1.1rem 1.4rem; margin-top:2.5rem; }
+  footer { margin-top:3rem; font-size:13.5px; color:var(--text-secondary); border-top:0.5px solid var(--border); padding-top:1.2rem; }
+  footer a { color: var(--text-secondary); }
+  ol li { margin-bottom:0.7rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a class="brand" href="/en">curatr</a><a class="" href="/en/">Home</a><a class="" href="/en/support.html">Help &amp; support</a><a class="" href="/en/datenschutz.html">Privacy</a><a class="on" href="/en/terms.html">Rules</a><a class="" href="/en/impressum.html">Legal notice</a><a class="lang" href="/nutzungsbedingungen.html">Deutsch</a></nav>
+
+<header>
+  <div class="kicker">Rules</div>
+  <h1>Rules for using curatr</h1>
+  <div class="updated">Last updated: 20 October 2026</div>
+</header>
+<div class="intro"><strong>In short:</strong> curatr is a place for honest tips among friends. Be kind, only post what you are allowed to, and report what does not belong. Anyone who breaks the rules gets blocked.</div>
+<section id="what">
+  <h2><span class="num">1</span>What curatr is</h2>
+  <p>curatr is an app where you rate restaurants, cafés and bars, save places and share tips with friends. You use curatr under these rules and our <a href="/en/datenschutz.html">privacy policy</a>. The operator is the one named in the <a href="/en/impressum.html">legal notice</a>.</p>
+</section>
+<section id="account">
+  <h2><span class="num">2</span>Your account</h2>
+  <ul>
+    <li>You give real details and keep your password secret. You are responsible for your account.</li>
+    <li>One account per person. Fake profiles or pretending to be someone else are not allowed.</li>
+  </ul>
+</section>
+<section id="allowed">
+  <h2><span class="num">3</span>What is not allowed</h2>
+  <p><strong>We do not tolerate objectionable content or abusive behaviour.</strong> This means:</p>
+  <ul>
+    <li>Insults, harassment, threats, bullying, hate and discrimination (for example because of origin, religion, gender, age, disability or sexual orientation).</li>
+    <li>Sexual, violent or other disturbing content, including in photos, notes, comments, names and profile texts.</li>
+    <li>Spam, advertising, chain messages and content meant to deceive users, such as fake or bought reviews.</li>
+    <li>Photos you have no rights to, or photos of people without their consent.</li>
+    <li>Publishing other people&#8217;s private data, breaking the law and attacking the app or its technology.</li>
+  </ul>
+</section>
+<section id="content">
+  <h2><span class="num">4</span>Your content</h2>
+  <p>Your ratings, photos, notes and comments belong to you. You allow curatr to store them and show them in the app as you set in your privacy settings. You confirm that you have the right to do so and do not harm anyone. Ratings are your personal opinion.</p>
+</section>
+<section id="report">
+  <h2><span class="num">5</span>Reporting and blocking</h2>
+  <ul>
+    <li><strong>Report:</strong> You can report profiles, comments and visits (menu &#8220;&#8230;&#8221;).</li>
+    <li><strong>Block:</strong> You can block anyone. You then no longer see each other, and neither of you can follow the other, send anything or comment. You can undo it at any time under <em>Settings → Blocked people</em>.</li>
+    <li><strong>What we do:</strong> We look at reports promptly, remove content that breaks these rules, and block or delete accounts for violations, also without warning.</li>
+  </ul>
+</section>
+<section id="places">
+  <h2><span class="num">6</span>Places and details</h2>
+  <p>Details about places (address, opening hours, prices, cuisine) come partly from users and open data sources and can be wrong or out of date. We give no guarantee. You can suggest changes.</p>
+</section>
+<section id="liability">
+  <h2><span class="num">7</span>Liability</h2>
+  <p>We are fully liable for intent and gross negligence and for injury to life, body or health. For slight negligence we are only liable for breaches of essential duties and only for typical, foreseeable damage. Statutory liability remains unaffected. Users are responsible for their own content.</p>
+</section>
+<section id="changes">
+  <h2><span class="num">8</span>Changes and ending</h2>
+  <p>We may change these rules, for example when the app gets new features. We show important changes in the app and ask for your agreement. You can delete your account at any time in the app (<em>Profile → Edit profile → Delete account</em>). We may block or delete your account for violations.</p>
+</section>
+<section id="law">
+  <h2><span class="num">9</span>Law</h2>
+  <p>German law applies. Mandatory consumer protection rules of your country of residence remain unaffected.</p>
+</section>
+<div class="contact">
+  <h2>Contact</h2>
+  <p>Questions, reports or complaints: <a href="mailto:curationapp@gmx.de">curationapp@gmx.de</a>. In the app you find reporting under the menu &#8220;&#8230;&#8221; on profiles, comments and visits.</p>
+</div>
+<footer>© 2026 curatr · <a href="/en/datenschutz.html">Privacy</a> · <a href="/en/impressum.html">Legal notice</a> · <a href="mailto:curationapp@gmx.de">curationapp@gmx.de</a></footer>
+</div>
+</body>
+</html>
