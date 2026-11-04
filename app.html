@@ -66,6 +66,8 @@
   // with a token the link is the app link itself; opening it again here would only loop
   if (!failed && !query.get('token_hash')) setTimeout(function () { location.href = target; }, 300);
   if (query.get('token_hash')) {
+    set('Bitte auf dem Handy öffnen', 'Öffne diesen Link am Handy, auf dem curatr installiert ist. Dann geht es direkt in der App weiter.',
+        'Please open this on your phone', 'Open this link on the phone where curatr is installed. It then continues right in the app.');
     document.getElementById('open').textContent = 'curatr / App Store / Google Play';
     document.getElementById('open').href = 'https://curatr.food';
   }
