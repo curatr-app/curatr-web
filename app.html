@@ -70,6 +70,16 @@
         'Please open this on your phone', 'Open this link on the phone where curatr is installed. It then continues right in the app.');
     document.getElementById('open').textContent = 'curatr / App Store / Google Play';
     document.getElementById('open').href = 'https://curatr.food';
+    // Android without verified app links (assetlinks.json): an intent link opens the app directly, no verification needed
+    if (/Android/i.test(navigator.userAgent)) {
+      var intent = 'intent://curatr.food/app.html' + location.search +
+        '#Intent;scheme=https;package=com.paulscheuble.curatr;S.browser_fallback_url=' + encodeURIComponent('https://curatr.food') + ';end';
+      set('Weiter in der App', 'Die App öffnet sich gleich. Wenn nichts passiert, tippe auf den Knopf.',
+          'Continue in the app', 'The app opens in a moment. If nothing happens, tap the button.');
+      document.getElementById('open').textContent = 'curatr öffnen / Open curatr';
+      document.getElementById('open').href = intent;
+      setTimeout(function () { location.href = intent; }, 300);
+    }
   }
 </script>
 </body>
