@@ -1,2 +1,8 @@
 # Public directory is the repository root (plain HTML, no build step)
 public: .
+
+# the file has no extension; iOS reads it as JSON (Universal Links, see app.html)
+headers:
+  - path: /.well-known/apple-app-site-association
+    values:
+      Content-Type: application/json

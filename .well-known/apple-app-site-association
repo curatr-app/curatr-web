@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["6Y2SC3DJ94.com.paulscheuble.curatr"],
+        "components": [{ "/": "/app*" }]
+      }
+    ]
+  }
+}
