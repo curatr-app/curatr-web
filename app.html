@@ -38,9 +38,12 @@
   // password reset still works in the app.
   var hash = location.hash || '';
   var params = new URLSearchParams(hash.replace(/^#/, ''));
-  var type = params.get('type');
+  // Mail links of sign-up and password reset carry ?token_hash=…&type=email|recovery instead. The phone normally opens the
+  // app for them directly; this page only shows when the app is not installed or on a computer (the code stays unused).
+  var query = new URLSearchParams(location.search);
+  var type = params.get('type') || (query.get('token_hash') ? (query.get('type') === 'recovery' ? 'recovery' : 'signup') : null);
   var failed = !!params.get('error');
-  var target = 'curatr://reset-password' + hash;
+  var target = query.get('token_hash') ? 'https://curatr.food/app.html' + location.search : 'curatr://reset-password' + hash;
   document.getElementById('open').href = target;
 
   function set(de, deText, en, enText) {
@@ -60,7 +63,12 @@
     set('Neues Passwort', 'Die App öffnet sich gleich, dort legst du dein neues Passwort fest.',
         'New password', 'The app opens in a moment, where you set your new password.');
   }
-  if (!failed) setTimeout(function () { location.href = target; }, 300);
+  // with a token the link is the app link itself; opening it again here would only loop
+  if (!failed && !query.get('token_hash')) setTimeout(function () { location.href = target; }, 300);
+  if (query.get('token_hash')) {
+    document.getElementById('open').textContent = 'curatr / App Store / Google Play';
+    document.getElementById('open').href = 'https://curatr.food';
+  }
 </script>
 </body>
 </html>
